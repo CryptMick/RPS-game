@@ -1,35 +1,75 @@
+// Rock Paper Scissors Game ( RPS )
 console.log("Hello World!");
 
-function getComputerChoice() {
-    const random = Math.random();
-    if (random > 0 && random < 0.35) {
-        console.log("Computer choice: Rock");
-    } else if (random > 0.35 && random < 0.7) {
-        console.log("Computer Choice: Paper");
-    } else if (random > 0.7 && random < 1) {
-        console.log("Computer Choice: Scissors");
-    } else {
-        console.log("");
-    }
-}
+// Game logic starts here:
+let humanScore, computerScore; 
+    humanScore = computerScore = 0;
+// Decision for human choice:
 function getHumanChoice() {
-    let hInput = prompt("Make a choice between Rock, Paper, and Scissors").toUpperCase();
-    if (hInput === "ROCK") {
-        console.log("Human Choice: ROCK");
-    } else if (hInput === "PAPER") {
-        console.log("Human Choice: PAPER");
-    } else if (hInput === "SCISSORS") {
-        console.log("SCISSORS");
-    } else {
-        console.log("");
+    let choice = prompt(" Make a choice here: ('rock' 'paper' or 'scissors'").toUpperCase();
+    switch(choice) {
+        case "ROCK":
+            console.log("You choose: ROCK");
+        break;
+        case "PAPER":
+            console.log("You Choose: PAPER");
+        break;
+        case "SCISSORS":
+            console.log("You choose: SCISSORS");
+        break;
+        default: 
+        console.log("Indecissive ");
     }
 }
 
-function playRound(humanChoice, computerChoice) {
-    // your code here!
+// Using Math.random() to initiate a random choice for computer
+function getComputerChoice() {
+    let compChoice = Math.random();
+    if (compChoice <= 0.35) {
+        console.log("Computer choice: ROCK");
+    } else if (compChoice = 0.36 || compChoice <= 0.65) {
+        console.log("Computer choice: PAPER");
+    } else {
+        console.log("Computer choice: SCISSORS");
+    }
 }
+
+
+// playRound determines if game has a win or draw
+function playRound(humanChoice, computerChoice) {
+    console.log("Decision Making");
+   /* switch (humanChoice, computerChoice) {
+        case "ROCK", "PAPER":
+            console.log("You Lose! Rock beat Paper");
+            ++computerScore;
+            console.log()
+        break;
+        case "PAPER", "SCISSORS": 
+        console.log("You Lose! Scissors beats Paper '(it cut paper into pieces)'");
+        ++computerScore;
+        break;
+        case "SCISSORS", "ROCK":
+            console.log("You Lose! Rock smash Scissors ");
+            ++computerScore;
+        break;
+        case "PAPER", "ROCK":
+            console.log("You Win! Paper suffocate Rock to death");
+            ++humanScore;
+        break; 
+        case "SCISSORS", "PAPER":
+            console.log("You Win! Scissors beats Paper");
+            ++humanScore;
+        break;
+        case "ROCK", "SCISSORS":
+            console.log("You win! Rock smash Scisstors");
+            ++humanScore;
+        break;
+        default:
+            console.log("No Winner");
+    }*/
+} 
 
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
-
+console.log(humanScore);
 playRound(humanSelection, computerSelection);

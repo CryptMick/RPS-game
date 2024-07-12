@@ -1,5 +1,5 @@
 # RPS-game
-Hi i'm CryptMick (smolinkling) 
+Hi i'm CryptMick (smolinking) 
 This repo is dedicated to RPS (Rock Paper Scissors) game
 It is a single mode game. i.e. user play against computer and can either win, lose, or draw
 Decision Rule for Rock Paper Scissors game: 
