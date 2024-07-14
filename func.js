@@ -5,17 +5,24 @@ console.log("Hello World!");
 let humanScore, computerScore; 
     humanScore = computerScore = 0;
 // Decision for human choice:
+// Decision for human choice:
+let hChoice;
+console.log("Human Choice is: ");
 function getHumanChoice() {
     let choice = prompt(" Make a choice here: ('rock' 'paper' or 'scissors'").toUpperCase();
     switch(choice) {
+
         case "ROCK":
-            console.log("You choose: ROCK");
+            hChoice = "ROCK";
+            console.log(hChoice);
         break;
         case "PAPER":
-            console.log("You Choose: PAPER");
+            hChoice = "PAPER";
+            console.log(hChoice);
         break;
         case "SCISSORS":
-            console.log("You choose: SCISSORS");
+            hChoice = "SCISSORS"
+            console.log(hChoice);
         break;
         default: 
         console.log("Indecissive ");
