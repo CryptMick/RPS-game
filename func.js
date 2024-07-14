@@ -90,7 +90,7 @@ const computerSelection = getComputerChoice();
 playRound(humanSelection, computerSelection);
 
 // rePlay 
-function rePlay() {
+function playGame() {
     switch (remark) {
         case "SUCCESS":
             console.log("Round 2")
@@ -111,6 +111,14 @@ function rePlay() {
                                     const human = getHumanChoice();
                                     const computer = getComputerChoice();
                                     playRound(human, computer);
+                                    remark = "Round 5";
+                                    switch (remark) {
+                                        case "Round 5":
+                                            console.log(remark, "Begins:")
+                                            const human = getHumanChoice();
+                                            const computer = getComputerChoice();
+                                            playRound(human, computer);
+                                    }
                             }
                     }
         break;
@@ -119,7 +127,7 @@ function rePlay() {
         }
         
 }
-rePlay();
+playGame();
 
 console.log("Winners Score goes here (Human : Computer");
 console.log(humanScore, ":", computerScore);
