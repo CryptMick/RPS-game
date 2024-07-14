@@ -68,3 +68,43 @@ function playRound(humanChoice, computerChoice) {
 const humanSelection = getHumanChoice();
 const computerSelection = getComputerChoice();
 playRound(humanSelection, computerSelection);
+
+function rePlay() {
+    switch (replay) {
+        case "SUCCESS":
+            const humanSelect = getHumanChoice();
+            const computerSelect = getComputerChoice();
+            playRound(humanSelect, computerSelect);
+                    replay = "Round 3";
+                    switch (replay) {
+                        case "Round 3":
+                            console.log(replay, "Begins:")
+                            const human = getHumanChoice();
+                            const computer = getComputerChoice();
+                            playRound(human, computer);
+                            replay = "Round 4";
+                            switch (replay) {
+                                case "Round 4":
+                                    console.log(replay, "Begins:")
+                                    const human = getHumanChoice();
+                                    const computer = getComputerChoice();
+                                    playRound(human, computer);
+                            }
+                    }
+        break;
+        default: 
+        console.log("It all end here");
+        }
+        
+}
+rePlay();
+
+console.log("Winners Score goes here (Human : Computer");
+console.log(humanScore, ":", computerScore);
+
+const humanscore = document.querySelector("#humanScore");
+const compscore = document.querySelector("#computerScore");
+const humanScor = document.createTextNode( humanScore);
+const computerScor = document.createTextNode( computerScore);
+humanscore.appendChild(humanScor);
+compscore.appendChild(computerScor);
