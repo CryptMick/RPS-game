@@ -30,14 +30,22 @@ function getHumanChoice() {
 }
 
 // Using Math.random() to initiate a random choice for computer
+console.log("Computer Choice: ");
+let comChoice;
 function getComputerChoice() {
     let compChoice = Math.random();
+    console.log(compChoice);
     if (compChoice <= 0.35) {
-        console.log("Computer choice: ROCK");
-    } else if (compChoice = 0.36 || compChoice <= 0.65) {
-        console.log("Computer choice: PAPER");
+        comChoice = "ROCK";
+        console.log(comChoice);
+    } else if (compChoice >= 0.36 && compChoice <= 0.65) {
+        comChoice = "PAPER";
+        console.log(comChoice);
+    } else if (compChoice >= 0.66 && compChoice <= 1) {
+        comChoice = "SCISSORS";
+        console.log(comChoice);
     } else {
-        console.log("Computer choice: SCISSORS");
+        console.log("No Decision");
     }
 }
 
