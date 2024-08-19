@@ -4,21 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="func.js" defer></script>
 </head>
 <body>
     <h1>RPS (Rock Paper Scissors) GAME </h1>
-    <p>This game require you to fill in your Choice in the Textbox provided below<br><br>
-        It is a single play game. i.e. Only one user against computer
-        Rules of the game play will follow thus: Rock breaks Scissors. <br>Thus Rock win and Scissors lose.
-        Paper can wrap around Rock to suffocate it to death: Paper Win Rock Lose.
-        Scissors cut Paper which leads to Paper early grave: Scissors win Paper Lose.
-    </p> 
+    <p> Click on buttons ("ROCK", "PAPER", or "SCISSORS") to make a choice </p> 
     <h2>Click the  "Start Game" button to begin</h2>
     <button id="start">Start Game</button>
-    <h3 id="round">GAME IS PLAYED IN YOUR BROWSER CONSOLE</h3>
-    <h3 id="humanscore">Your Score: </h3>
-    <h3 id="computerscore">Computer Score:</h3>
+    <button class="rock">ROCK</button>
+    <button class="paper">PAPER</button>
+    <button class="scissors">SCISSORS</button>
+    <div id="container"></div>
+    <h3 id="humanscore"></h3>
+    <h3 id="computerscore"></h3>
     <p id="message"><b></b></p>
-    <script src="func.js"></script>
+    <p class="para"> </p>
+
 </body>
 </html>
