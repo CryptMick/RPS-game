@@ -2,6 +2,8 @@
 const rock = document.querySelector(".rock");
 const paper = document.querySelector(".paper");
 const scissors = document.querySelector(".scissors");
+const start = document.querySelector("#start");
+const begin = document.querySelector("#begin");
 let para = document.querySelector(".para");
 let humanscor = document.querySelector("#humanscore");
 let compscore = document.querySelector("#computerscore");
@@ -12,6 +14,7 @@ let compOutput = document.createElement("p");
 let div = document.querySelector("#container");
 div.appendChild (humanOutput);
 div.appendChild (compOutput);
+
 // Using Math.random() to initiate a random choice for computer
 let comChoice;
 function getComputerChoice() {
@@ -32,7 +35,12 @@ function getComputerChoice() {
 }
 
 let humanScore = 0;
-    let computerScore = 0;
+let computerScore = 0;
+function outward() {
+    humanscor.textContent= `Player Score: ${humanScore}`;
+    compscore.textContent= `Computer Score: ${computerScore}`;
+}
+outward();
 // Game Decision Rule, playRound determine who win or lose the game 
 function playRound(player, computer) {
     
@@ -60,18 +68,15 @@ function playRound(player, computer) {
     }
     return para.textContent;
 }
-humanscor.textContent = humanScore;
-compscore.textContent = computerScore;
-// game() return player and computer input and call the playRound() to deteremine win, lose, or draw.
 
-/*function count() {
-    if (para.textContent === "You win!" ) {humanscor.textContent = ++humanScore;}
-    else if (para.textContent === "You Lose!" ) { compscore.textContent = ++computerScore;}
-}*/
-// Scores and final game message: 
+// Scores and final game message and disable game button at completion of each round (first to score a 5 point)
 function scores() {
+    outward();
     if (humanScore === 5 || computerScore === 5) {
-        alert ("Game Over");
+        start.disabled = false;
+       rock.disabled = true;
+        paper.disabled = true;
+        scissors.disabled  = true;
         if (humanScore > computerScore) {
             message.textContent = `Congratulation Player, you won the entire game rounds with a socre of ${humanScore} `;
             
@@ -86,14 +91,14 @@ function scores() {
 
 let computerChoice;
 
-// Player decision is captured in choice 
+// Player decision is captured in variable "choice"
 rock.addEventListener("click", () => {
     playerChoice = "ROCK";
     humanOutput.textContent = `You choose: ${playerChoice}`;
     computerChoice = getComputerChoice();
     playRound(playerChoice, computerChoice);
     scores();
-    //count(); 
+
 });
     paper.addEventListener("click", () => {
         playerChoice = "PAPER";
@@ -101,7 +106,6 @@ rock.addEventListener("click", () => {
         computerChoice = getComputerChoice();
         playRound(playerChoice, computerChoice);
         scores();
-        //count();
     });
     scissors.addEventListener("click", () => {
         playerChoice = "SCISSORS";
@@ -109,5 +113,19 @@ rock.addEventListener("click", () => {
         computerChoice = getComputerChoice();
         playRound(playerChoice, computerChoice);
         scores();
-        //count();
     });
+   
+    // Restart button starts a new round when the prior round is completed 
+    if (humanScore < 5  || computerScore < 5) {start.disabled = true;}
+    start.addEventListener("click", () => {
+        rock.disabled = false;
+        scissors.disabled = false;
+        paper.disabled = false;
+        begin.textContent = "Game Restarted";
+        humanScore = 0;
+        computerScore = 0;
+        message.textContent = "";
+        para.textContent = "";
+        outward();
+    })
+    
